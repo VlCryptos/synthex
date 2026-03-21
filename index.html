@@ -427,22 +427,21 @@ var CHAT_MSG = {
 
 function setLang(l) {
   lang = l;
+  var t = T[l];
   document.querySelectorAll('.lb').forEach(function(b){ b.classList.toggle('on', b.textContent === l.toUpperCase()); });
   var cm = document.getElementById('chat-msg');
   if (cm) cm.textContent = CHAT_MSG[l];
-  document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
-    var k = el.getAttribute('data-i18n-ph');
-    if (t[k]) el.placeholder = t[k];
-  });
-  var t = T[l];
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var k = el.getAttribute('data-i18n');
     if (t[k] !== undefined) el.innerHTML = t[k];
   });
-  /* FIX: обновляем значение "48ч / 48h / 48год" при смене языка */
   document.querySelectorAll('[data-i18n-val]').forEach(function(el){
     var k = el.getAttribute('data-i18n-val');
     if (t[k] !== undefined) el.textContent = t[k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+    var k = el.getAttribute('data-i18n-ph');
+    if (t[k]) el.placeholder = t[k];
   });
   buildTicker();
 }
