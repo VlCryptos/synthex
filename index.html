@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SYNTHEX — AI Development Company</title>
+<title>SYNTHEX — AI Development Company | Боты, Автоматизация, AI-агенты</title>
+<meta name="description" content="SYNTHEX — строим AI-агентов, Telegram-боты и автоматизации для бизнеса. Прототип за 48 часов. 50+ проектов. Claude API, N8N, Python.">
+<meta name="keywords" content="AI агенты, Telegram бот, автоматизация бизнеса, Claude API, N8N, чат-бот, AI разработка">
+<meta property="og:title" content="SYNTHEX — AI Development Company">
+<meta property="og:description" content="Строим AI-агентов и автоматизации, которые работают пока вы спите. Прототип за 48 часов.">
+<meta property="og:url" content="https://synthexco.xyz">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SYNTHEX — AI Development Company">
+<meta name="twitter:description" content="AI-агенты, Telegram-боты, автоматизация бизнеса. Прототип за 48 часов.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -109,6 +118,33 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:24
 .bs-val{font-family:'Oswald',sans-serif;font-size:16px;letter-spacing:2px;color:var(--text);white-space:nowrap}
 .bs-status{display:flex;align-items:center;gap:6px;font-family:'Oswald',sans-serif;font-size:16px;letter-spacing:2px;color:var(--accent)}
 .bs-div{width:1px;height:40px;background:var(--border);flex-shrink:0}
+/* ABOUT */
+.about-section{position:relative;z-index:1;padding:80px 56px;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-text .lbl{margin-bottom:12px}
+.about-title{font-family:'Oswald',sans-serif;font-size:clamp(32px,4vw,52px);letter-spacing:2px;line-height:1;margin-bottom:20px}
+.about-desc{font-size:14px;color:var(--muted);line-height:1.9;font-weight:300;max-width:480px}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.astat{background:var(--bg);padding:28px 24px;text-align:center}
+.astat-n{font-family:'Oswald',sans-serif;font-size:42px;letter-spacing:2px;background:linear-gradient(135deg,var(--accent2),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px}
+.astat-l{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* CONTACT FORM */
+.ct-form{display:flex;flex-direction:column;gap:12px;margin-top:32px;max-width:560px;margin-left:auto;margin-right:auto}
+.ct-form input,.ct-form textarea{background:var(--bg);border:1px solid var(--border);color:var(--text);padding:14px 18px;font-family:'Outfit',sans-serif;font-size:14px;outline:none;transition:border-color .2s;resize:none;-webkit-appearance:none}
+.ct-form input::placeholder,.ct-form textarea::placeholder{color:var(--muted)}
+.ct-form input:focus,.ct-form textarea:focus{border-color:rgba(168,85,247,.5)}
+.ct-form textarea{min-height:100px}
+.ct-submit{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;border:none;padding:15px 40px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all .25s;letter-spacing:.03em;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%)}
+.ct-submit:hover{box-shadow:0 0 40px rgba(168,85,247,.45);transform:translateY(-1px)}
+.ct-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.ct-success{display:none;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);color:#22c55e;padding:14px 20px;font-size:14px;text-align:center}
+
+/* SCROLL ANIMATION */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:40px}}
 @media(max-width:600px){.hero-title{font-size:52px !important;letter-spacing:2px}}
 @media(max-width:900px){.brand-strip{padding:0 16px}.bs-item{padding:14px 16px}.hero-stats{width:100%}.hstat{flex:1}}
 a,button{cursor:pointer !important}
@@ -215,10 +251,26 @@ a,button{cursor:pointer !important}
 
 <div class="ticker"><div class="ticker-inner" id="ticker"></div></div>
 
+<!-- ABOUT -->
+<section class="about-section">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <div class="lbl" data-i18n="about_label">О компании</div>
+      <h2 class="about-title"><span data-i18n="about_t1">МЫ</span> <span class="grad" data-i18n="about_t2">SYNTHEX</span></h2>
+      <p class="about-desc" data-i18n="about_desc">Команда AI-разработчиков которая строит умные системы для бизнеса. Автоматизируем рутину, создаём ботов и AI-агентов которые работают пока вы занимаетесь главным — развитием компании.</p>
+    </div>
+    <div class="about-stats reveal">
+      <div class="astat"><div class="astat-n">50+</div><div class="astat-l" data-i18n="astat1">Проектов</div></div>
+      <div class="astat"><div class="astat-n">48ч</div><div class="astat-l" data-i18n="astat2">До прототипа</div></div>
+      <div class="astat"><div class="astat-n">24/7</div><div class="astat-l" data-i18n="astat3">Работают агенты</div></div>
+    </div>
+  </div>
+</section>
+
 <section id="services">
   <div class="lbl" data-i18n="s1_label">Услуги</div>
   <h2 class="ttl"><span data-i18n="s1_title">ЧТО МЫ</span> <span class="dim" data-i18n="s1_title2">ДЕЛАЕМ</span></h2>
-  <div class="svc-grid">
+  <div class="svc-grid reveal">
     <div class="svc"><div class="svc-n">01</div><div class="svc-t" data-i18n="sv1_t">AI Агенты &amp; Чат-боты</div><div class="svc-d" data-i18n="sv1_d">Умные агенты на базе Claude API — автономные системы, которые обрабатывают запросы, принимают решения и работают 24/7 без участия человека.</div><div class="svc-tags"><span class="svc-tag">Claude API</span><span class="svc-tag">LLM</span><span class="svc-tag">RAG</span></div></div>
     <div class="svc"><div class="svc-n">02</div><div class="svc-t" data-i18n="sv2_t">Автоматизация бизнеса</div><div class="svc-d" data-i18n="sv2_d">Интеграции сервисов, автоматические пайплайны, обработка данных. Убираем рутину — освобождаем время команды для важных задач.</div><div class="svc-tags"><span class="svc-tag">N8N</span><span class="svc-tag">Make</span><span class="svc-tag">Python</span></div></div>
     <div class="svc"><div class="svc-n">03</div><div class="svc-t" data-i18n="sv3_t">Telegram Боты</div><div class="svc-d" data-i18n="sv3_d">Боты для продаж, поддержки, уведомлений и мониторинга. Полная интеграция с CRM, базами данных и внешними API.</div><div class="svc-tags"><span class="svc-tag">Telegram API</span><span class="svc-tag">CRM</span></div></div>
@@ -231,7 +283,7 @@ a,button{cursor:pointer !important}
 <section id="approach" class="appr">
   <div class="lbl" data-i18n="s2_label">Подход</div>
   <h2 class="ttl"><span data-i18n="s2_title">КАК МЫ</span> <span class="dim" data-i18n="s2_title2">РАБОТАЕМ</span></h2>
-  <div class="steps">
+  <div class="steps reveal">
     <div class="step"><div class="step-n">01</div><div class="step-t" data-i18n="st1_t">Анализ задачи</div><div class="step-d" data-i18n="st1_d">Изучаем ваш бизнес, задачи и боли. Предлагаем решение с конкретными метриками эффективности.</div></div>
     <div class="step"><div class="step-n">02</div><div class="step-t" data-i18n="st2_t">Прототип за 48ч</div><div class="step-d" data-i18n="st2_d">Показываем рабочий прототип быстро — чтобы вы видели результат до финального запуска.</div></div>
     <div class="step"><div class="step-n">03</div><div class="step-t" data-i18n="st3_t">Разработка</div><div class="step-d" data-i18n="st3_d">Пишем чистый код, настраиваем интеграции, тестируем каждый сценарий. Без лишних слов — только результат.</div></div>
@@ -259,7 +311,14 @@ a,button{cursor:pointer !important}
       <span class="grad" data-i18n="ct2">ЗАДАЧА?</span>
     </h2>
     <p class="ct-sub" data-i18n="ct_sub">Расскажите о вашем проекте — ответим в течение нескольких часов и предложим решение под ваши задачи и бюджет.</p>
-    <div class="ct-btns">
+    <form class="ct-form reveal" id="contact-form" onsubmit="submitForm(event)">
+      <input type="text" id="f-name" placeholder="Ваше имя" data-i18n-ph="f_name" required>
+      <input type="text" id="f-contact" placeholder="Email или Telegram (@username)" data-i18n-ph="f_contact" required>
+      <textarea id="f-task" placeholder="Опишите вашу задачу..." data-i18n-ph="f_task" required></textarea>
+      <button type="submit" class="ct-submit" id="f-submit" data-i18n="f_submit">→ Отправить заявку</button>
+    </form>
+    <div class="ct-success" id="ct-success" data-i18n="f_success">✅ Заявка отправлена! Свяжемся с вами в ближайшее время.</div>
+    <div class="ct-btns" style="margin-top:24px">
       <a href="https://t.me/SyntHexAIcompany" class="cb main" data-i18n="ct_tg">&#8594; Telegram</a>
       <a href="mailto:synthex.company@gmail.com" class="cb" data-i18n="ct_email">Gmail</a>
     </div>
@@ -306,10 +365,50 @@ setTimeout(function(){ if(!chatOpen) toggleChat(); }, 8000);
 </script>
 
 <script>
+// ── CONTACT FORM ──────────────────────────────────────────────
+async function submitForm(e) {
+  e.preventDefault();
+  var btn = document.getElementById('f-submit');
+  btn.disabled = true;
+  btn.textContent = '...';
+
+  var name = document.getElementById('f-name').value.trim();
+  var contact = document.getElementById('f-contact').value.trim();
+  var task = document.getElementById('f-task').value.trim();
+
+  var text = '🔔 Нова заявка з сайту synthexco.xyz\n\n'
+    + '👤 Ім\'я: ' + name + '\n'
+    + '📱 Контакт: ' + contact + '\n'
+    + '💬 Задача: ' + task;
+
+  try {
+    await fetch('https://api.telegram.org/bot8649395533:AAEGbADDlmi3-teJ9bCsGyHDBWPPaG_B9gc/sendMessage', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ chat_id: '113774021', text: text })
+    });
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('ct-success').style.display = 'block';
+  } catch(err) {
+    btn.disabled = false;
+    btn.textContent = document.querySelector('[data-i18n="f_submit"]') ? document.querySelector('[data-i18n="f_submit"]').textContent : '→ Відправити';
+  }
+}
+
+// ── SCROLL REVEAL ─────────────────────────────────────────────
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
+})();
+</script>
+
+<script>
 var T = {
-  ru:{nav_services:'Услуги',nav_approach:'Подход',nav_stack:'Стек',nav_contact:'Контакт',nav_cta:'Начать проект',hero_tag:'Открыты для проектов — 2025',hero_t1:'SYNTHEX',hero_t2:'AI COMPANY',hero_sub:'Строим <strong>AI-агентов и автоматизации</strong>, которые работают пока вы спите.<br>Ваш бизнес — быстрее. Ваша команда — эффективнее. Без лишнего.',hero_btn1:'Наши услуги',hero_btn_tg:'💬 Написать боту',hero_btn2:'Обсудить задачу',hero_tagline:'Автоматизируем будущее.<br>Прямо сейчас.',hs1:'Работают агенты',hs2:'До прототипа',hs2_val:'48ч',hs3:'Масштаб',bc1_l:'Основан',bc2_l:'Специализация',bc2_v:'AI BUSINESS DEV',bc4_l:'Стек',bc5_l:'Статус',bc5_v:'Доступны',s1_label:'Услуги',s1_title:'ЧТО МЫ',s1_title2:'ДЕЛАЕМ',sv1_t:'AI Агенты & Чат-боты',sv1_d:'Умные агенты на базе Claude API — автономные системы, которые обрабатывают запросы, принимают решения и работают 24/7 без участия человека.',sv2_t:'Автоматизация бизнеса',sv2_d:'Интеграции сервисов, автоматические пайплайны, обработка данных. Убираем рутину — освобождаем время команды для важных задач.',sv3_t:'Telegram Боты',sv3_d:'Боты для продаж, поддержки, уведомлений и мониторинга. Полная интеграция с CRM, базами данных и внешними API.',sv4_t:'Web Разработка',sv4_d:'Лендинги, корпоративные сайты, дашборды. Современный дизайн, быстрая загрузка, фокус на результат.',sv5_t:'Крипто & Финтех',sv5_d:'Дашборды для трейдинга, боты мониторинга цен, парсеры рынка. Глубокая экспертиза в крипто-индустрии.',sv6_t:'Консалтинг по AI',sv6_d:'Анализируем ваш бизнес и находим точки роста с AI. Подбираем инструменты, строим стратегию автоматизации с ROI.',s2_label:'Подход',s2_title:'КАК МЫ',s2_title2:'РАБОТАЕМ',st1_t:'Анализ задачи',st1_d:'Изучаем ваш бизнес, задачи и боли. Предлагаем решение с конкретными метриками эффективности.',st2_t:'Прототип за 48ч',st2_d:'Показываем рабочий прототип быстро — чтобы вы видели результат до финального запуска.',st3_t:'Разработка',st3_d:'Пишем чистый код, настраиваем интеграции, тестируем каждый сценарий. Без лишних слов — только результат.',st4_t:'Запуск & Поддержка',st4_d:'Деплоим, настраиваем и передаём проект. Остаёмся на связи — поддержка и доработки по запросу.',s3_label:'Технологии',s3_title:'НАШ',s4_label:'Контакт',ct1:'ЕСТЬ',ct2:'ЗАДАЧА?',ct_sub:'Расскажите о вашем проекте — ответим в течение нескольких часов и предложим решение под ваши задачи и бюджет.',ct_tg:'→ Telegram',ct_email:'Gmail',tag_strategy:'Стратегия',footer_tag:'КОМПАНИЯ ПО РАЗРАБОТКЕ AI © 2025',footer_avail:'Открыты для сотрудничества'},
-  en:{nav_services:'Services',nav_approach:'Approach',nav_stack:'Stack',nav_contact:'Contact',nav_cta:'Start a project',hero_tag:'Available for projects — 2025',hero_t1:'SYNTHEX',hero_t2:'AI COMPANY',hero_sub:'We build <strong>AI agents and automations</strong> that work while you sleep.<br>Your business — faster. Your team — more powerful. No fluff.',hero_btn1:'Our services',hero_btn_tg:'💬 Chat with bot',hero_btn2:'Discuss a project',hero_tagline:'Automating the future.<br>Right now.',hs1:'Agents running',hs2:'To prototype',hs2_val:'48h',hs3:'Scale',bc1_l:'Founded',bc2_l:'Specialization',bc2_v:'AI BUSINESS DEV',bc4_l:'Stack',bc5_l:'Status',bc5_v:'Available',s1_label:'Services',s1_title:'WHAT WE',s1_title2:'DO',sv1_t:'AI Agents & Chatbots',sv1_d:'Smart agents powered by Claude API — autonomous systems that handle requests, make decisions and run 24/7 without human involvement.',sv2_t:'Business Automation',sv2_d:'Service integrations, automated pipelines, data processing. Remove routine — free your team for what actually matters.',sv3_t:'Telegram Bots',sv3_d:'Bots for sales, support, notifications and monitoring. Full integration with CRM, databases and external APIs.',sv4_t:'Web Development',sv4_d:'Landing pages, corporate sites, dashboards. Modern design, fast loading, conversion-focused.',sv5_t:'Crypto & Fintech',sv5_d:'Trading dashboards, price monitoring bots, market scrapers. Deep expertise in the crypto industry.',sv6_t:'AI Consulting',sv6_d:'We analyze your business and find growth points with AI. We select tools and build an automation strategy with ROI.',s2_label:'Approach',s2_title:'HOW WE',s2_title2:'WORK',st1_t:'Task Analysis',st1_d:'We study your business, goals and pain points. We propose a solution with concrete performance metrics.',st2_t:'Prototype in 48h',st2_d:'We show a working prototype quickly — so you see results before the final launch.',st3_t:'Development',st3_d:'We write clean code, configure integrations, test every scenario. No fluff — just results.',st4_t:'Launch & Support',st4_d:'We deploy, configure and hand over the project. We stay in touch — support and updates on request.',s3_label:'Technologies',s3_title:'OUR',s4_label:'Contact',ct1:'GOT A',ct2:'PROJECT?',ct_sub:"Tell us about your project — we'll reply within a few hours and propose a solution for your needs and budget.",ct_tg:'→ Telegram',ct_email:'Gmail',tag_strategy:'Strategy',footer_tag:'AI DEVELOPMENT COMPANY © 2025',footer_avail:'Open to collaboration'},
-  ua:{nav_services:'Послуги',nav_approach:'Підхід',nav_stack:'Стек',nav_contact:'Контакт',nav_cta:'Почати проект',hero_tag:'Відкриті для проектів — 2025',hero_t1:'SYNTHEX',hero_t2:'AI COMPANY',hero_sub:'Будуємо <strong>AI-агентів та автоматизації</strong>, які працюють поки ви спите.<br>Ваш бізнес — швидший. Ваша команда — сильніша. Без зайвого.',hero_btn1:'Наші послуги',hero_btn_tg:'💬 Написати боту',hero_btn2:'Обговорити задачу',hero_tagline:'Автоматизуємо майбутнє.<br>Прямо зараз.',hs1:'Агенти працюють',hs2:'До прототипу',hs2_val:'48год',hs3:'Масштаб',bc1_l:'Засновано',bc2_l:'Спеціалізація',bc2_v:'AI BUSINESS DEV',bc4_l:'Стек',bc5_l:'Статус',bc5_v:'Доступні',s1_label:'Послуги',s1_title:'ЩО МИ',s1_title2:'РОБИМО',sv1_t:'AI Агенти & Чат-боти',sv1_d:'Розумні агенти на базі Claude API — автономні системи, що обробляють запити, приймають рішення та працюють 24/7 без участі людини.',sv2_t:'Автоматизація бізнесу',sv2_d:'Інтеграції сервісів, автоматичні пайплайни, обробка даних. Прибираємо рутину — звільняємо час команди для важливих задач.',sv3_t:'Telegram Боти',sv3_d:'Боти для продажів, підтримки, сповіщень та моніторингу. Повна інтеграція з CRM, базами даних та зовнішніми API.',sv4_t:'Web Розробка',sv4_d:'Лендінги, корпоративні сайти, дашборди. Сучасний дизайн, швидке завантаження, фокус на результат.',sv5_t:'Крипто & Фінтех',sv5_d:'Дашборди для трейдингу, боти моніторингу цін, парсери ринку. Глибока експертиза в крипто-індустрії.',sv6_t:'Консалтинг по AI',sv6_d:'Аналізуємо ваш бізнес і знаходимо точки зростання з AI. Підбираємо інструменти, будуємо стратегію автоматизації з ROI.',s2_label:'Підхід',s2_title:'ЯК МИ',s2_title2:'ПРАЦЮЄМО',st1_t:'Аналіз задачі',st1_d:'Вивчаємо ваш бізнес, задачі та болі. Пропонуємо рішення з конкретними метриками ефективності.',st2_t:'Прототип за 48год',st2_d:'Показуємо робочий прототип швидко — щоб ви бачили результат до фінального запуску.',st3_t:'Розробка',st3_d:'Пишемо чистий код, налаштовуємо інтеграції, тестуємо кожен сценарій. Без зайвих слів — лише результат.',st4_t:'Запуск & Підтримка',st4_d:"Деплоємо, налаштовуємо і передаємо проект. Залишаємося на зв'язку — підтримка та доопрацювання за запитом.",s3_label:'Технології',s3_title:'НАШ',s4_label:'Контакт',ct1:'Є',ct2:'ЗАДАЧА?',ct_sub:'Розкажіть про ваш проект — відповімо протягом кількох годин і запропонуємо рішення під ваші задачі та бюджет.',ct_tg:'→ Telegram',ct_email:'Gmail',tag_strategy:'Стратегія',footer_tag:'КОМПАНІЯ З РОЗРОБКИ AI © 2025',footer_avail:'Відкриті для співпраці'}
+  ru:{nav_services:'Услуги',nav_approach:'Подход',nav_stack:'Стек',nav_contact:'Контакт',nav_cta:'Начать проект',hero_tag:'Открыты для проектов — 2025',hero_t1:'SYNTHEX',hero_t2:'AI COMPANY',hero_sub:'Строим <strong>AI-агентов и автоматизации</strong>, которые работают пока вы спите.<br>Ваш бизнес — быстрее. Ваша команда — эффективнее. Без лишнего.',about_label:'О компании',about_t1:'МЫ',about_t2:'SYNTHEX',about_desc:'Команда AI-разработчиков которая строит умные системы для бизнеса. Автоматизируем рутину, создаём ботов и AI-агентов которые работают пока вы занимаетесь главным — развитием компании.',astat1:'Проектов',astat2:'До прототипа',astat3:'Агенты работают',f_name:'Ваше имя',f_contact:'Email или Telegram (@username)',f_task:'Опишите вашу задачу...',f_submit:'→ Отправить заявку',f_success:'✅ Заявка отправлена! Свяжемся с вами в ближайшее время.',hero_btn1:'Наши услуги',hero_btn_tg:'💬 Написать боту',hero_btn2:'Обсудить задачу',hero_tagline:'Автоматизируем будущее.<br>Прямо сейчас.',hs1:'Работают агенты',hs2:'До прототипа',hs2_val:'48ч',hs3:'Масштаб',bc1_l:'Основан',bc2_l:'Специализация',bc2_v:'AI BUSINESS DEV',bc4_l:'Стек',bc5_l:'Статус',bc5_v:'Доступны',s1_label:'Услуги',s1_title:'ЧТО МЫ',s1_title2:'ДЕЛАЕМ',sv1_t:'AI Агенты & Чат-боты',sv1_d:'Умные агенты на базе Claude API — автономные системы, которые обрабатывают запросы, принимают решения и работают 24/7 без участия человека.',sv2_t:'Автоматизация бизнеса',sv2_d:'Интеграции сервисов, автоматические пайплайны, обработка данных. Убираем рутину — освобождаем время команды для важных задач.',sv3_t:'Telegram Боты',sv3_d:'Боты для продаж, поддержки, уведомлений и мониторинга. Полная интеграция с CRM, базами данных и внешними API.',sv4_t:'Web Разработка',sv4_d:'Лендинги, корпоративные сайты, дашборды. Современный дизайн, быстрая загрузка, фокус на результат.',sv5_t:'Крипто & Финтех',sv5_d:'Дашборды для трейдинга, боты мониторинга цен, парсеры рынка. Глубокая экспертиза в крипто-индустрии.',sv6_t:'Консалтинг по AI',sv6_d:'Анализируем ваш бизнес и находим точки роста с AI. Подбираем инструменты, строим стратегию автоматизации с ROI.',s2_label:'Подход',s2_title:'КАК МЫ',s2_title2:'РАБОТАЕМ',st1_t:'Анализ задачи',st1_d:'Изучаем ваш бизнес, задачи и боли. Предлагаем решение с конкретными метриками эффективности.',st2_t:'Прототип за 48ч',st2_d:'Показываем рабочий прототип быстро — чтобы вы видели результат до финального запуска.',st3_t:'Разработка',st3_d:'Пишем чистый код, настраиваем интеграции, тестируем каждый сценарий. Без лишних слов — только результат.',st4_t:'Запуск & Поддержка',st4_d:'Деплоим, настраиваем и передаём проект. Остаёмся на связи — поддержка и доработки по запросу.',s3_label:'Технологии',s3_title:'НАШ',s4_label:'Контакт',ct1:'ЕСТЬ',ct2:'ЗАДАЧА?',ct_sub:'Расскажите о вашем проекте — ответим в течение нескольких часов и предложим решение под ваши задачи и бюджет.',ct_tg:'→ Telegram',ct_email:'Gmail',tag_strategy:'Стратегия',footer_tag:'КОМПАНИЯ ПО РАЗРАБОТКЕ AI © 2025',footer_avail:'Открыты для сотрудничества'},
+  en:{nav_services:'Services',nav_approach:'Approach',nav_stack:'Stack',nav_contact:'Contact',nav_cta:'Start a project',hero_tag:'Available for projects — 2025',hero_t1:'SYNTHEX',hero_t2:'AI COMPANY',hero_sub:'We build <strong>AI agents and automations</strong> that work while you sleep.<br>Your business — faster. Your team — more powerful. No fluff.',about_label:'About',about_t1:'WE ARE',about_t2:'SYNTHEX',about_desc:'A team of AI developers building smart systems for business. We automate routine work, create bots and AI agents that work while you focus on growing your company.',astat1:'Projects',astat2:'To prototype',astat3:'Agents running',f_name:'Your name',f_contact:'Email or Telegram (@username)',f_task:'Describe your project...',f_submit:'→ Send request',f_success:'✅ Request sent! We\'ll get back to you shortly.',hero_btn1:'Our services',hero_btn_tg:'💬 Chat with bot',hero_btn2:'Discuss a project',hero_tagline:'Automating the future.<br>Right now.',hs1:'Agents running',hs2:'To prototype',hs2_val:'48h',hs3:'Scale',bc1_l:'Founded',bc2_l:'Specialization',bc2_v:'AI BUSINESS DEV',bc4_l:'Stack',bc5_l:'Status',bc5_v:'Available',s1_label:'Services',s1_title:'WHAT WE',s1_title2:'DO',sv1_t:'AI Agents & Chatbots',sv1_d:'Smart agents powered by Claude API — autonomous systems that handle requests, make decisions and run 24/7 without human involvement.',sv2_t:'Business Automation',sv2_d:'Service integrations, automated pipelines, data processing. Remove routine — free your team for what actually matters.',sv3_t:'Telegram Bots',sv3_d:'Bots for sales, support, notifications and monitoring. Full integration with CRM, databases and external APIs.',sv4_t:'Web Development',sv4_d:'Landing pages, corporate sites, dashboards. Modern design, fast loading, conversion-focused.',sv5_t:'Crypto & Fintech',sv5_d:'Trading dashboards, price monitoring bots, market scrapers. Deep expertise in the crypto industry.',sv6_t:'AI Consulting',sv6_d:'We analyze your business and find growth points with AI. We select tools and build an automation strategy with ROI.',s2_label:'Approach',s2_title:'HOW WE',s2_title2:'WORK',st1_t:'Task Analysis',st1_d:'We study your business, goals and pain points. We propose a solution with concrete performance metrics.',st2_t:'Prototype in 48h',st2_d:'We show a working prototype quickly — so you see results before the final launch.',st3_t:'Development',st3_d:'We write clean code, configure integrations, test every scenario. No fluff — just results.',st4_t:'Launch & Support',st4_d:'We deploy, configure and hand over the project. We stay in touch — support and updates on request.',s3_label:'Technologies',s3_title:'OUR',s4_label:'Contact',ct1:'GOT A',ct2:'PROJECT?',ct_sub:"Tell us about your project — we'll reply within a few hours and propose a solution for your needs and budget.",ct_tg:'→ Telegram',ct_email:'Gmail',tag_strategy:'Strategy',footer_tag:'AI DEVELOPMENT COMPANY © 2025',footer_avail:'Open to collaboration'},
+  ua:{nav_services:'Послуги',nav_approach:'Підхід',nav_stack:'Стек',nav_contact:'Контакт',nav_cta:'Почати проект',hero_tag:'Відкриті для проектів — 2025',hero_t1:'SYNTHEX',hero_t2:'AI COMPANY',hero_sub:'Будуємо <strong>AI-агентів та автоматизації</strong>, які працюють поки ви спите.<br>Ваш бізнес — швидший. Ваша команда — сильніша. Без зайвого.',about_label:'Про компанію',about_t1:'МИ',about_t2:'SYNTHEX',about_desc:'Команда AI-розробників яка будує розумні системи для бізнесу. Автоматизуємо рутину, створюємо ботів та AI-агентів які працюють поки ви займаєтесь головним — розвитком компанії.',astat1:'Проектів',astat2:'До прототипу',astat3:'Агенти працюють',f_name:"Ваше ім'я",f_contact:'Email або Telegram (@username)',f_task:'Опишіть вашу задачу...',f_submit:'→ Надіслати заявку',f_success:'✅ Заявку надіслано! Зв\'яжемось найближчим часом.',hero_btn1:'Наші послуги',hero_btn_tg:'💬 Написати боту',hero_btn2:'Обговорити задачу',hero_tagline:'Автоматизуємо майбутнє.<br>Прямо зараз.',hs1:'Агенти працюють',hs2:'До прототипу',hs2_val:'48год',hs3:'Масштаб',bc1_l:'Засновано',bc2_l:'Спеціалізація',bc2_v:'AI BUSINESS DEV',bc4_l:'Стек',bc5_l:'Статус',bc5_v:'Доступні',s1_label:'Послуги',s1_title:'ЩО МИ',s1_title2:'РОБИМО',sv1_t:'AI Агенти & Чат-боти',sv1_d:'Розумні агенти на базі Claude API — автономні системи, що обробляють запити, приймають рішення та працюють 24/7 без участі людини.',sv2_t:'Автоматизація бізнесу',sv2_d:'Інтеграції сервісів, автоматичні пайплайни, обробка даних. Прибираємо рутину — звільняємо час команди для важливих задач.',sv3_t:'Telegram Боти',sv3_d:'Боти для продажів, підтримки, сповіщень та моніторингу. Повна інтеграція з CRM, базами даних та зовнішніми API.',sv4_t:'Web Розробка',sv4_d:'Лендінги, корпоративні сайти, дашборди. Сучасний дизайн, швидке завантаження, фокус на результат.',sv5_t:'Крипто & Фінтех',sv5_d:'Дашборди для трейдингу, боти моніторингу цін, парсери ринку. Глибока експертиза в крипто-індустрії.',sv6_t:'Консалтинг по AI',sv6_d:'Аналізуємо ваш бізнес і знаходимо точки зростання з AI. Підбираємо інструменти, будуємо стратегію автоматизації з ROI.',s2_label:'Підхід',s2_title:'ЯК МИ',s2_title2:'ПРАЦЮЄМО',st1_t:'Аналіз задачі',st1_d:'Вивчаємо ваш бізнес, задачі та болі. Пропонуємо рішення з конкретними метриками ефективності.',st2_t:'Прототип за 48год',st2_d:'Показуємо робочий прототип швидко — щоб ви бачили результат до фінального запуску.',st3_t:'Розробка',st3_d:'Пишемо чистий код, налаштовуємо інтеграції, тестуємо кожен сценарій. Без зайвих слів — лише результат.',st4_t:'Запуск & Підтримка',st4_d:"Деплоємо, налаштовуємо і передаємо проект. Залишаємося на зв'язку — підтримка та доопрацювання за запитом.",s3_label:'Технології',s3_title:'НАШ',s4_label:'Контакт',ct1:'Є',ct2:'ЗАДАЧА?',ct_sub:'Розкажіть про ваш проект — відповімо протягом кількох годин і запропонуємо рішення під ваші задачі та бюджет.',ct_tg:'→ Telegram',ct_email:'Gmail',tag_strategy:'Стратегія',footer_tag:'КОМПАНІЯ З РОЗРОБКИ AI © 2025',footer_avail:'Відкриті для співпраці'}
 };
 
 var TICK = {
@@ -331,6 +430,10 @@ function setLang(l) {
   document.querySelectorAll('.lb').forEach(function(b){ b.classList.toggle('on', b.textContent === l.toUpperCase()); });
   var cm = document.getElementById('chat-msg');
   if (cm) cm.textContent = CHAT_MSG[l];
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+    var k = el.getAttribute('data-i18n-ph');
+    if (t[k]) el.placeholder = t[k];
+  });
   var t = T[l];
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var k = el.getAttribute('data-i18n');
